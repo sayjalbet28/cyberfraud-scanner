@@ -1,9 +1,9 @@
-// ⭐ ENTER YOUR GOOGLE GEMINI API KEY ⭐
-const GEMINI_API_KEY = "AIza…yourKeyHere";
+
+const GEMINI_API_KEY = "";
 
 
 
-// ⭐ SAFE DOMAIN LIST – ALWAYS SAFE
+
 const safeList = [
     "google.com", "youtube.com", "gmail.com", "wikipedia.org",
     "amazon.com", "amazon.in", "microsoft.com", "apple.com",
@@ -12,7 +12,7 @@ const safeList = [
 ];
 
 
-// 🧠 AI CHECK (Gemini)
+// AI CHECK (Gemini)
 async function aiCheck(content) {
     try {
         let response = await fetch(
@@ -57,7 +57,7 @@ Analyze this: "${content}"
 
 
 
-// ⭐ SHOW RESULT
+//  SHOW RESULT
 function showResult(score, type) {
     let result = document.getElementById("result");
     let scoreText = document.getElementById("score");
@@ -78,24 +78,24 @@ function showResult(score, type) {
 
 
 
-// 🔗 URL SCANNER
+// URL SCANNER
 async function scanURL() {
     let url = document.getElementById("url").value.trim().toLowerCase();
 
-    // ⭐ LAYER 1: Known safe → ALWAYS SAFE
+    // LAYER 1: Known safe → ALWAYS SAFE
     if (safeList.some(domain => url.includes(domain))) {
         showResult(0, "URL");
         return;
     }
 
-    // ⭐ LAYER 2: AI check for unknown URLs
+    // LAYER 2: AI check for unknown URLs
     let aiScore = await aiCheck("Check if this URL is fraud: " + url);
     showResult(aiScore, "URL");
 }
 
 
 
-// 📧 EMAIL SCANNER
+// EMAIL SCANNER
 async function scanEmail() {
     let sender = document.getElementById("sender").value.trim();
     let email = document.getElementById("email").value.trim();
@@ -108,10 +108,11 @@ async function scanEmail() {
 
 
 
-// 📩 SMS SCANNER
+// SMS SCANNER
 async function scanSMS() {
     let sms = document.getElementById("sms").value.trim();
 
     let aiScore = await aiCheck("SMS message: " + sms);
     showResult(aiScore, "SMS");
 }
+
