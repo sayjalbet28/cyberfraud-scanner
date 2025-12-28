@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cyber Fraud Scanner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🔐 Cyber Fraud Scanner</h1>
+
+    <!-- URL -->
+    <h3>🔗 URL Scanner</h3>
+    <input type="text" id="url" placeholder="Enter URL">
+    <button onclick="scanURL()">Scan URL</button>
+
+    <hr>
+
+    <!-- Email -->
+    <h3>📧 Email Scanner</h3>
+    <input type="text" id="sender" placeholder="Sender Email">
+    <textarea id="email" placeholder="Paste email content"></textarea>
+    <button onclick="scanEmail()">Scan Email</button>
+
+    <hr>
+
+    <!-- SMS -->
+    <h3>📩 SMS Scanner</h3>
+    <textarea id="sms" placeholder="Paste SMS text"></textarea>
+    <button onclick="scanSMS()">Scan SMS</button>
+
+    <hr>
+
+    <h2 id="result">Result will appear here</h2>
+    <p id="score"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
